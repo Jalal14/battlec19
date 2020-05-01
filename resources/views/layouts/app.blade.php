@@ -5,7 +5,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/dist/css/bootstrap.min.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/datta-able/css/style.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/dist/css/demo.css') }}">
 	<style type="text/css">
+		body{
+            background-color: black;
+            color: white;
+        }
 		.blue-navbar {
 			background-color: #06264D !important;
 		}
@@ -61,6 +67,7 @@
 	  		</div>
 		</div>
 	</nav>
+	@include('layouts.banner')
 	@yield('content')
 </body>
 <script src="{{ asset('public/datta-able/js/vendor-all.min.js') }}"></script>

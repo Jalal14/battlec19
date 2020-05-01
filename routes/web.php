@@ -16,3 +16,6 @@
 // });
 
 Route::get('/', 'HomeController@index');
+
+Route::get('/donation-list', 'HomeController@donationList');
+Route::get('/donated-list', 'HomeController@donatedList');

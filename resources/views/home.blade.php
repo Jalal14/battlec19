@@ -4,13 +4,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('public/datta-able/plugins/animation/css/animate.min.css') }}">
     <!-- vendor css -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/datta-able/plugins/chart-morris/css/morris.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/datta-able/css/style.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('public/dist/css/demo.css') }}">
     <style>
-        body{
-            background-color: black;
-            color: white;
-        }
         .contact-section h2, .contact-section h3{
             color: white;
             font-weight: 800;
@@ -31,7 +25,6 @@
 @endsection
 
 @section('content')
-@include('layouts.banner')
 <div style="height: 100px" id="contact"></div>
 <div class="container">
     <div  class="row">

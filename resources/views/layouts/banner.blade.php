@@ -1,4 +1,7 @@
 <style type="text/css">
+  #fb-link :hover{
+    color: white;
+  }
   @media only screen and (max-width: 600px) {
           body {
             background-color: black;
@@ -208,19 +211,31 @@
               </span>
 
               <span
-                style="color: #e8ee85; font-size: 5rem; font-weight: bold;"
+                style="color: #e8ee85; font-size: 4rem; font-weight: bold;"
                 class="sp-bottom"
                 >people</span
               >
               <span
-                style="color: #e8ee85; font-size: 5rem; font-weight: bold;"
+                style="color: #e8ee85; font-size: 4rem; font-weight: bold;"
                 class="sp-bottom"
                 >is starving</span
               >
               <span
-                style="color: #a7ea8f; font-size: 2rem; font-weight: bold;"
-                class="sp-bottom"
-                >https://facebook.com/battlec19/</span
+                style="color: #a7ea8f; font-size: 4rem; font-weight: bold;"
+                class="sp-bottom" id="fb-link"
+                ><a href="https://facebook.com/battlec19">Join with BattleC19</a></a></span
+              >
+            </h2>
+          </div>
+        </div>
+        <div
+          class="d-flex justify-content-xl-end justify-content-md-center justify-content-sm-start"
+        >
+          <div class="sp-wrap sp-right">
+            <h2>
+              <span class="sp-bottom contact-class"
+                >Contact : #01743874471 #01688284976 #01741934933 <br />
+                #01310854516 #01633138396 #01889463363</span
               >
             </h2>
           </div>
