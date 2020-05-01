@@ -115,7 +115,7 @@
         </div>
         <div class="col-12 mt-5">
             @for($i=1; $i<=21; $i++)
-                <img src="{{asset('public/images/helps')}}/{{$i}}.png">
+                <img class="img-thumbnail m-1" src="{{asset('public/images/helps')}}/{{$i}}.png" style="max-height: 250px;">
             @endfor
         </div>
     </div>
@@ -126,7 +126,7 @@
         </div>
         <div class="col-12 mt-5">
             @for($i=1; $i<=28; $i++)
-                <img src="{{asset('public/images/helpers')}}/{{$i}}.jpg" style="max-height: 250px;">
+                <img class="img-thumbnail m-1" src="{{asset('public/images/helpers')}}/{{$i}}.jpg" style="max-height: 250px;">
             @endfor
         </div>
         <div class="col-12">
@@ -147,8 +147,8 @@ $(document).ready(function() {
         var graph = Morris.Donut({
             element: 'seek-help',
             data: [{
-                    value: 22,
-                    label: '22'
+                    value: 14,
+                    label: '14'
                 }
             ],
             colors: [
@@ -167,8 +167,8 @@ $(document).ready(function() {
         var graph = Morris.Donut({
             element: 'helped',
             data: [{
-                    value: 14,
-                    label: '14'
+                    value: 22,
+                    label: '22'
                 }
             ],
             colors: [
@@ -199,16 +199,16 @@ $(document).ready(function() {
                 radius: '65%',
                 center: ['55%', '45%'],
                 data: [{
-                        value: 21973,
-                        name: 'In fund 21973'
+                        value: 30130,
+                        name: 'In fund 30130'
                     },
                     {
-                        value: 36705,
-                        name: 'Used 36705'
+                        value: 29055,
+                        name: 'Used 29055'
                     },
                     {
-                        value: 58678,
-                        name: 'Due 58678'
+                        value: 540815,
+                        name: 'Due 540815'
                     }
                 ]
             }]
@@ -234,7 +234,7 @@ $(document).ready(function() {
                 return ''
             }
         });
-        $("#not-helped").find("text").attr("fill", "#ffffff").css("font-size", "32px").css("margin-top", "10px");
+        $("#not-helped").find("text").attr("fill", "#ffffff").css("font-size", "30px").css("margin-top", "10px");
     }, 700);
 });
 </script>

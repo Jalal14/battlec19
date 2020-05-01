@@ -171,7 +171,7 @@
         background: url({{asset("public/images/banner.png")}}) no-repeat center center;
         background-size: auto;
         background-size: cover;
-        background-color: #aaaaaa;
+        background-color: #000000;
         -moz-background-size: cover;
         -o-background-size: cover;
 

@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/dist/css/demo.css') }}">
 	<style type="text/css">
 		body{
-            background-color: #badc58;
+            background-color: black;
             color: white;
         }
 		.blue-navbar {
