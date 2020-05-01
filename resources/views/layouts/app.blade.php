@@ -9,7 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/dist/css/demo.css') }}">
 	<style type="text/css">
 		body{
-            background-color: black;
+            background-color: #badc58;
             color: white;
         }
 		.blue-navbar {
@@ -49,19 +49,19 @@
 	  		<div class="collapse navbar-collapse" id="collapsibleNavbar">
 	    		<ul class="navbar-nav ml-auto">
 	      			<li class="nav-item">
-	        			<a class="nav-link" href="#">Home</a>
+	        			<a class="nav-link" href="{{url('/')}}#home">Home</a>
 	      			</li>
 	      			<li class="nav-item">
-	        			<a class="nav-link" href="#">Contact</a>
+	        			<a class="nav-link" href="{{url('/')}}#contact">Contact</a>
 	      			</li>
 	      			<li class="nav-item">
-	        			<a class="nav-link" href="#">Activities</a>
+	        			<a class="nav-link" href="{{url('/')}}#activities">Activities</a>
 	      			</li>
 	      			<li class="nav-item">
-	        			<a class="nav-link" href="#">Partners</a>
+	        			<a class="nav-link" href="{{url('/')}}#beside-us">Partners</a>
 	      			</li>
 	      			<li>
-	      				<a href="http://donation.exaiubian.com/" target="blank" class="lab-btn style-2" style="padding: 15px 40px !important"><span>Donate</span></a>
+	      				<a href="{{url('/')}}#donation" target="blank" class="lab-btn style-2" style="padding: 15px 40px !important"><span>Donate</span></a>
 	      			</li>
 	    		</ul>
 	  		</div>

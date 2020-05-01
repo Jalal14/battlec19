@@ -45,7 +45,8 @@
             <img src="{{ asset('public/images/logo.png')}}" class="img-fluid ml-5 mt-3">
         </div>
     </div>
-    <div id="donation" class="row" style="margin-top: 100px;">
+    <div id="donation" style="height: 100px"></div>
+    <div class="row">
         <div class="col-lg-9">
             <div class="row">
                 <div class="donate-contact-section col-lg-4">
@@ -56,10 +57,10 @@
                         <h3><span style="color: #7F83FD">Nogod: </span>01687325925</h3>
                     </div>
                     <div class="row mt-5">
-                        <a href="#"><button class="btn" style="background-color: #00ff00; font-size: 20px; font-weight: bold;">List of donation collected</button></a>
+                        <a href="{{url('donation-list')}}"><button class="btn" style="background-color: #00ff00; font-size: 20px; font-weight: bold;">List of donation collected</button></a>
                     </div>
                     <div class="row mt-5">
-                        <a href="#"><button class="btn btn-primary" style="font-size: 20px; font-weight: bold;">List of donation used</button></a>
+                        <a href="{{url('donated-list')}}"><button class="btn btn-primary" style="font-size: 20px; font-weight: bold;">List of donation used</button></a>
                     </div>
                     <div class="row">
                         <div class="col-12" id="seek-help-circle">
@@ -105,7 +106,8 @@
             </div>
         </div>
     </div>
-    <div id="activities" class="row" style="margin-top: 70px">
+    <div id="activities" style="height: 70px"></div>
+    <div class="row">
         <img src="{{asset('public/images/logo.png')}}" style="height: 200px; margin-left: 10%" class="mr-auto">
         <img src="{{asset('public/images/logo.png')}}" style="height: 150px; margin-right: 10%" class="ml-auto">
         <div class="col-12">
@@ -117,7 +119,8 @@
             @endfor
         </div>
     </div>
-    <div id="beside-us" class="row" style="margin-top: 70px">
+    <div id="beside-us" style="height: 70px"></div>
+    <div class="row">
         <div class="col-12">
             <h1 style="text-align: center; margin-top: 5%; font-size: 60px; font-weight: 800; color: #FFF484">Artists and People Who supported us to get this Donation</h1>
         </div>

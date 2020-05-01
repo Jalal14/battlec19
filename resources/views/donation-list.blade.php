@@ -6,10 +6,12 @@
 	h1{
 		font-size: 40px;
 		font-weight: bolder;
+		color: white;
 	}
-	h2 {
+	h3 {
 		font-size: 20px;
 		line-height: 2em;
+		color: white;
 	}
 	thead tr th, label, .paginate_button {
 		color: white;
@@ -450,14 +452,14 @@
 			</table>
 		</div>
 		<div class="col-md-4">
-			<h2 style="text-align: right;">Target 400 family to help</h2>
-			<h2 style="text-align: right;">Per family approx 1500 BDT</h2>
-			<h2 style="text-align: right;">Total amount we need 600000BDT</h2>
-			<h2 style="text-align: right;">Amount we collected 45185 BDT</h2>
-			<h2 style="text-align: right;">Amount we lacking 540815 BDT</h2>
-			<h2 style="text-align: right;">Donated 28606 BDT</h2>
-			<h2 style="text-align: right;">Cash out charge 449 BDT</h2>
-			<h2 style="text-align: right;">Amount in hand 30130 BDT</h2>
+			<h3 style="text-align: right;">Target 400 family to help</h3>
+			<h3 style="text-align: right;">Per family approx 1500 BDT</h3>
+			<h3 style="text-align: right;">Total amount we need 600000BDT</h3>
+			<h3 style="text-align: right;">Amount we collected 45185 BDT</h3>
+			<h3 style="text-align: right;">Amount we lacking 540815 BDT</h3>
+			<h3 style="text-align: right;">Donated 28606 BDT</h3>
+			<h3 style="text-align: right;">Cash out charge 449 BDT</h3>
+			<h3 style="text-align: right;">Amount in hand 30130 BDT</h3>
 		</div>
 	</div>
 </div>
@@ -469,7 +471,9 @@
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
 <script type="text/javascript">
 $(document).ready( function () {
-    $('#donation_list').DataTable();
+    $('#donation_list').DataTable({
+    	"pageLength": 25
+    });
 } );
 </script>
 @endsection

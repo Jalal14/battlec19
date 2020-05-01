@@ -171,7 +171,7 @@
         background: url({{asset("public/images/banner.png")}}) no-repeat center center;
         background-size: auto;
         background-size: cover;
-        background-color: black;
+        background-color: #aaaaaa;
         -moz-background-size: cover;
         -o-background-size: cover;
 
@@ -218,7 +218,7 @@
               <span
                 style="color: #e8ee85; font-size: 4rem; font-weight: bold;"
                 class="sp-bottom"
-                >is starving</span
+                >are starving</span
               >
               <span
                 style="color: #a7ea8f; font-size: 4rem; font-weight: bold;"
