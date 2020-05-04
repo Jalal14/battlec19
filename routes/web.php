@@ -34,6 +34,21 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
 	Route::get('/donation/list', 'DonationController@index');
 	Route::get('/donation/add', 'DonationController@create');
 	Route::post('/donation/store', 'DonationController@store');
+	Route::get('/donation/edit/{id}', 'DonationController@edit');
+	Route::post('/donation/update', 'DonationController@update');
+	Route::get('insert-donations', 'DonationController@insert');
+	Route::post('insert-donations', 'DonationController@storeDonations');
+
+	Route::get('/family', function () {
+		return redirect('admin/family/list');
+	});
+	Route::get('/family/list', 'FamilyController@index');
+	Route::get('/family/add', 'FamilyController@create');
+	Route::post('/family/store', 'FamilyController@store');
+	Route::get('/family/edit/{id}', 'FamilyController@edit');
+	Route::post('/family/update', 'FamilyController@update');
+	Route::get('insert-families', 'FamilyController@insert');
+	Route::post('insert-families', 'FamilyController@storeFamilies');
 
 
 	Route::get('/member', function () {
