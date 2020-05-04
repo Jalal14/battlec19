@@ -28,7 +28,17 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
 	Route::get('/', 'AdminController@index');
 	Route::get('/dashboard', 'AdminController@index');
 
-	Route::get('/member', 'MemberController@index');
+	Route::get('/donation', function () {
+		return redirect('admin/donation/list');
+	});
+	Route::get('/donation/list', 'DonationController@index');
+	Route::get('/donation/add', 'DonationController@create');
+	Route::post('/donation/store', 'DonationController@store');
+
+
+	Route::get('/member', function () {
+		return redirect('admin/member/list');
+	});
 	Route::get('/member/list', 'MemberController@index');
 	Route::get('/member/add', 'MemberController@create');
 	Route::post('/member/store', 'MemberController@store');

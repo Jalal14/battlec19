@@ -4,18 +4,18 @@
 <div class="col-sm-12">
     <div class="card user-list">
         <div class="card-header">
-            <h5><a href="{{ url('admin/member/list') }}">Members</a> >> Add New Member</h5>
+            <h5><a href="{{ url('admin/donation/list') }}">Members</a> >> Add New Donation</h5>
         </div>
 	    <div class="card-body">
 	        <div class="m-t-10 p-0">
-	            <form id="form" method="POST" action="{{url('admin/member/store')}}">
+	            <form id="form" method="POST" action="{{url('admin/donation/store')}}">
 	                {{ csrf_field() }}
 	                <div class="row">
 	                    <div class="col-md-6">
 	                        <div class="form-group row">
-	                            <label for="name" class="col-md-3 col-form-label">Name</label>
+	                            <label for="mobile" class="col-md-3 col-form-label">Mobile</label>
 	                            <div class="col-md-9">
-	                                <input type="text" name="name" class="form-control" value="{{old('name')}}">
+	                                <input type="text" name="mobile" class="form-control" value="{{old('mobile')}}">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -23,9 +23,9 @@
 	                <div class="row">
 	                    <div class="col-md-6">
 	                        <div class="form-group row">
-	                            <label for="phone" class="col-md-3 col-form-label">Phone</label>
+	                            <label for="amount" class="col-md-3 col-form-label">Amount</label>
 	                            <div class="col-md-9">
-	                                <input type="text" name="phone" class="form-control" value="{{old('phone')}}">
+	                                <input type="text" name="amount" class="form-control" value="{{old('amount')}}">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -33,9 +33,9 @@
 	                <div class="row">
 	                    <div class="col-md-6">
 	                        <div class="form-group row">
-	                            <label for="email" class="col-md-3 col-form-label">Email</label>
+	                            <label for="method" class="col-md-3 col-form-label">Method</label>
 	                            <div class="col-md-9">
-	                                <input type="text" name="email" class="form-control" value="{{old('email')}}">
+	                                <input type="text" name="method" class="form-control" value="{{old('method')}}">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -43,9 +43,19 @@
 	                <div class="row">
 	                    <div class="col-md-6">
 	                        <div class="form-group row">
-	                            <label for="email" class="col-md-3 col-form-label">Password</label>
+	                            <label for="donation_date" class="col-md-3 col-form-label">Date</label>
 	                            <div class="col-md-9">
-	                                <input type="password" name="password" class="form-control">
+	                                <input type="text" name="donation_date" class="form-control" value="{{old('donation_date')}}">
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	                <div class="row">
+	                    <div class="col-md-6">
+	                        <div class="form-group row">
+	                            <label for="date" class="col-md-3 col-form-label">TRX</label>
+	                            <div class="col-md-9">
+	                                <input type="text" name="trx" class="form-control" value="{{old('trx')}}">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -67,10 +77,9 @@
 <script type="text/javascript">
 	$("#form").validate({
         rules: {
-            name: "required",
-            phone: "required",
-            email: "required",
-            password: "required"
+            mobile: "required",
+            amount: "required",
+            date: "required",
         }
     });
 </script>
