@@ -17,6 +17,12 @@
                         <span class="pcoded-mtext"> Dashboard </span>
                     </a>
                 </li>
+                <li class="nav-item {{ $menu == 'donation' ? 'active' : '' }}">
+                    <a href="{{ url('admin/donation') }}" class="nav-link">
+                        <span class="pcoded-micon"><i class="fas fa-hand-holding-usd"></i></span>
+                        <span class="pcoded-mtext"> Donation </span>
+                    </a>
+                </li>
                 <li class="nav-item {{ $menu == 'member' ? 'active' : '' }}">
                     <a href="{{ url('admin/member/list') }}" class="nav-link">
                         <span class="pcoded-micon"><i class="fas fa-user-cog"></i></span>
