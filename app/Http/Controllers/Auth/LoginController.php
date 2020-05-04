@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use  Auth;
 
 class LoginController extends Controller
 {
@@ -25,15 +27,34 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/admin/dashboard';
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+        return view('admin.login');
+    }
+
+    public function authenticate(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
+        $data = $request->only('email', 'password');
+        if (Auth::attempt($data)) {
+            return redirect('admin/dashboard');
+        }
+        return back()->withInput()->withErrors(['email' => "Invalid email or password"]);
     }
 }

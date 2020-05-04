@@ -19,3 +19,17 @@ Route::get('/', 'HomeController@index');
 
 Route::get('/donation-list', 'HomeController@donationList');
 Route::get('/donated-list', 'HomeController@donatedList');
+
+Route::get('admin/login', 'Auth\LoginController@showLoginForm')->name('admin.login');
+Route::post('admin/authenticate', 'Auth\LoginController@authenticate');
+
+Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
+{
+	Route::get('/', 'AdminController@index');
+	Route::get('/dashboard', 'AdminController@index');
+
+	Route::get('/member', 'MemberController@index');
+	Route::get('/member/list', 'MemberController@index');
+	Route::get('/member/add', 'MemberController@create');
+	Route::post('/member/store', 'MemberController@store');
+});
