@@ -147,8 +147,8 @@ $(document).ready(function() {
         var graph = Morris.Donut({
             element: 'seek-help',
             data: [{
-                    value: 14,
-                    label: '14'
+                    value: "{!! $remains !!}",
+                    label: "{!! $remains !!}"
                 }
             ],
             colors: [
@@ -167,8 +167,8 @@ $(document).ready(function() {
         var graph = Morris.Donut({
             element: 'helped',
             data: [{
-                    value: 22,
-                    label: '22'
+                    value: "{!! $saved !!}",
+                    label: "{!! $saved !!}",
                 }
             ],
             colors: [
@@ -199,16 +199,16 @@ $(document).ready(function() {
                 radius: '65%',
                 center: ['55%', '45%'],
                 data: [{
-                        value: 30130,
-                        name: 'In fund 30130'
+                        value: "{!! $inFund !!}",
+                        name: 'In fund ' + {!! $inFund !!}
                     },
                     {
-                        value: 29055,
-                        name: 'Used 29055'
+                        value: "{!! $used !!}",
+                        name: 'Used ' + "{!! $used !!}"
                     },
                     {
-                        value: 540815,
-                        name: 'Due 540815'
+                        value: "{!! $due !!}",
+                        name: 'Due ' + "{!! $due !!}",
                     }
                 ]
             }]
@@ -222,8 +222,8 @@ $(document).ready(function() {
         var graph = Morris.Donut({
             element: 'not-helped',
             data: [{
-                    value: 368,
-                    label: '368'
+                    value: "{!! $starving !!}",
+                    label: "{!! $starving !!}",
                 }
             ],
             colors: [

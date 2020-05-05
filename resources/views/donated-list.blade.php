@@ -33,21 +33,24 @@
 		    	<thead>
 		        	<tr>
 		        		<th>Serial</th>
+			            <th>Name (Member)</th>
+			            <th>Mobile</th>
+			            <th>Area</th>
+			            <th>Amount</th>
 		        		<th>Date</th>
 			            <th>In charge</th>
-			            <th>Name (Member)</th>
-			            <th>Contact</th>
-			            <th>Location</th>
-			            <th>Amount</th>
 		        	</tr>
 		    	</thead>
 		    	<tbody>
 		    		@forelse($donatedList as $index => $donated)
 		    			<tr>
-		    				<td>{{$index+1}}</td>
-		    			@foreach($donated as $key => $value)
-		    				<td>{{ $value }}</td>
-		    			@endforeach
+		    				<td>{{ $index+1 }}</td>
+		    				<td>{{ $donated->name }}({{ $donated->member }}) </td>
+		    				<td>{{ $donated->mobile }} </td>
+		    				<td>{{ $donated->area }} </td>
+		    				<td>{{ $donated->amount }} </td>
+		    				<td>{{ $donated->donation_date }} </td>
+		    				<td>{{ !empty($donated->in_charge) ? $donated->in_charge : '-' }} </td>
 		    			</tr>
 		    		@empty
 		    		@endforelse
@@ -57,12 +60,12 @@
 		<div class="col-md-4">
 			<h3 style="text-align: right;">Target 400 family to help</h3>
 			<h3 style="text-align: right;">Per family approx 1500 BDT</h3>
-			<h3 style="text-align: right;">Total amount we need 600000BDT</h3>
-			<h3 style="text-align: right;">Amount we collected 45185 BDT</h3>
-			<h3 style="text-align: right;">Amount we lacking 540815 BDT</h3>
-			<h3 style="text-align: right;">Donated 28606 BDT</h3>
-			<h3 style="text-align: right;">Cash out charge 449 BDT</h3>
-			<h3 style="text-align: right;">Amount in hand 30130 BDT</h3>
+			<h3 style="text-align: right;">Total amount we need 600000 BDT</h3>
+			<h3 style="text-align: right;">Amount we collected {{ $donation }} BDT</h3>
+			<h3 style="text-align: right;">Amount we lacking {{ 600000 - $donation }} BDT</h3>
+			<h3 style="text-align: right;">Donated {{ $donatedList->sum('amount') }} BDT</h3>
+			<h3 style="text-align: right;">Cash out charge {{ $cash_out }} BDT</h3>
+			<h3 style="text-align: right;">Amount in hand {{ $donation - $donatedList->sum('amount') - $cash_out }} BDT</h3>
 		</div>
 	</div>
 </div>
