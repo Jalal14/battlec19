@@ -23,6 +23,12 @@
                         <span class="pcoded-mtext"> Donation </span>
                     </a>
                 </li>
+                <li class="nav-item {{ $menu == 'family' ? 'active' : '' }}">
+                    <a href="{{ url('admin/family') }}" class="nav-link">
+                        <span class="pcoded-micon"><i class="fas fa-users"></i></span>
+                        <span class="pcoded-mtext"> Family </span>
+                    </a>
+                </li>
                 <li class="nav-item {{ $menu == 'member' ? 'active' : '' }}">
                     <a href="{{ url('admin/member/list') }}" class="nav-link">
                         <span class="pcoded-micon"><i class="fas fa-user-cog"></i></span>

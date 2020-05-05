@@ -3,10 +3,9 @@
 namespace App\DataTables;
 
 use Yajra\DataTables\Services\DataTable;
+use App\Models\Family;
 
-use App\Models\Donation;
-
-class DonationDatatable extends DataTable
+class FamilyDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,11 +15,11 @@ class DonationDatatable extends DataTable
      */
     public function ajax()
     {
-        $donations = $this->query();
+        $families = $this->query();
         return  datatables()
-        ->of($donations)
-        ->addColumn('action', function ($donations) {
-            return '<a href="' . url("admin/donation/edit/$donations->id") . '" title="Edit" class="btn btn-xs btn-primary"><i class="feather icon-edit"></i></a>';
+        ->of($families)
+        ->addColumn('action', function ($families) {
+            return '<a href="' . url("admin/family/edit/$families->id") . '" title="Edit" class="btn btn-xs btn-primary"><i class="feather icon-edit"></i></a>';
         })
         ->rawColumns(['action'])
         ->make(true);
@@ -34,7 +33,7 @@ class DonationDatatable extends DataTable
      */
     public function query()
     {
-        return $this->applyScopes(Donation::select());
+        return $this->applyScopes(Family::select());
     }
 
     /**
@@ -46,11 +45,14 @@ class DonationDatatable extends DataTable
     {
         return $this->builder()
         ->addColumn(['data' => 'id', 'name' => 'id', 'visible' => false])
+        ->addColumn(['data' => 'name', 'name' => 'Name', 'title' => "Name"])
         ->addColumn(['data' => 'mobile', 'name' => 'mobile', 'title' => "Mobile"])
+        ->addColumn(['data' => 'member', 'name' => 'member', 'title' => "Member"])
+        ->addColumn(['data' => 'area', 'name' => 'area', 'title' => "Area"])
         ->addColumn(['data' => 'amount', 'name' => 'amount', 'title' => "Amount"])
-        ->addColumn(['data' => 'method', 'name' => 'method', 'title' => "Method"])
-        ->addColumn(['data' => 'trx', 'name' => 'trx', 'title' => "TRX"])
         ->addColumn(['data' => 'donation_date', 'name' => 'donation_date', 'title' => "Date"])
+        ->addColumn(['data' => 'in_charge', 'name' => 'in_charge', 'title' => "In Charge"])
+        ->addColumn(['data' => 'status', 'name' => 'status', 'title' => "Status"])
         ->addColumn(['data' => 'action', 'name' => 'action', 'title' => "Action"])
         ->parameters([
             'pageLength' => $this->row_per_page,
