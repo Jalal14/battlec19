@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="{{ asset('public/datta-able/plugins/select2/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ asset('public/datta-able/css/style.css?v='. time()) }}">
     <link rel="stylesheet" href="{{ asset('public/dist/css/admin-style.css?v='. time()) }}">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     @yield('css')
 </head>
 <body>

@@ -45,7 +45,7 @@
 	                        <div class="form-group row">
 	                            <label for="donation_date" class="col-md-3 col-form-label">Date</label>
 	                            <div class="col-md-9">
-	                                <input type="text" name="donation_date" class="form-control" value="{{old('donation_date')}}">
+	                                <input type="date" name="donation_date" class="form-control" value="{{old('donation_date')}}">
 	                            </div>
 	                        </div>
 	                    </div>
@@ -80,6 +80,8 @@
             mobile: "required",
             amount: "required",
             date: "required",
+            method: "required",
+            trx: "required",
         }
     });
 </script>
