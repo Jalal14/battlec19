@@ -50,6 +50,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
 	Route::get('insert-families', 'FamilyController@insert');
 	Route::post('insert-families', 'FamilyController@storeFamilies');
 
+	Route::get('/post', function () {
+		return redirect('admin/post/list');
+	});
+	Route::get('/post/list', 'PostController@index');
+	Route::get('/post/add', 'PostController@create');
+	Route::post('/post/store', 'PostController@store');
+
 
 	Route::get('/member', function () {
 		return redirect('admin/member/list');
@@ -57,4 +64,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
 	Route::get('/member/list', 'MemberController@index');
 	Route::get('/member/add', 'MemberController@create');
 	Route::post('/member/store', 'MemberController@store');
+
+	Route::post('file/upload', 'FileController@uploadEventAttachments');
+	Route::post('file/remove', 'FileController@deleteEventAttachment');
 });

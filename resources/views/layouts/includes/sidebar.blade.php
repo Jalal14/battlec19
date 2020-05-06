@@ -29,6 +29,12 @@
                         <span class="pcoded-mtext"> Family </span>
                     </a>
                 </li>
+                <li class="nav-item {{ $menu == 'post' ? 'active' : '' }}">
+                    <a href="{{ url('admin/post') }}" class="nav-link">
+                        <span class="pcoded-micon"><i class="fas fa-heart"></i></span>
+                        <span class="pcoded-mtext"> POST </span>
+                    </a>
+                </li>
                 <li class="nav-item {{ $menu == 'member' ? 'active' : '' }}">
                     <a href="{{ url('admin/member/list') }}" class="nav-link">
                         <span class="pcoded-micon"><i class="fas fa-user-cog"></i></span>
