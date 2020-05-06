@@ -23,7 +23,7 @@ class PostDatatable extends DataTable
             return substr($posts->description, 0, 20);
         })
         ->addColumn('action', function ($donations) {
-            return '<a href="' . url("admin/donation/edit/$donations->id") . '" title="Edit" class="btn btn-xs btn-primary"><i class="feather icon-edit"></i></a>';
+            return '<a href="' . url("admin/post/edit/$donations->id") . '" title="Edit" class="btn btn-xs btn-primary"><i class="feather icon-edit"></i></a>';
         })
         ->rawColumns(['description', 'action'])
         ->make(true);

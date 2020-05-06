@@ -66,8 +66,8 @@ class Post extends Model
 		$files = $this->getFiles($objectType, $objectId, $options);
 		if (!empty($files)) {
 			foreach ($files as $key => $value) {
-				if ($this->where('id', $value->id)->delete()) {
-					$result = $this->unlinkFile($path."/".$value->file_name);
+				if (DonationImage::where('id', $value->id)->delete()) {
+					$result = $this->unlinkFile($path."/".$value->photo);
 				}
 			}
 		}
@@ -80,7 +80,7 @@ class Post extends Model
 		if (empty($objectType) && empty($objectId) && empty($options['ids'])) {
 			return [];
 		}
-		$query = $this->select();
+		$query = DonationImage::select();
 		if (!empty($objectType) && !empty($objectId)) {
 			$objectId = !is_array($objectId) ? [$objectId] : $objectId;
 			$query->where('object_type', $objectType)->whereIn('object_id', $objectId);

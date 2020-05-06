@@ -30,7 +30,7 @@
 			</div>
 			<h1 style="text-align: center;">Donation photos</h1>
 			<div class="row">
-				@forelse($post->donationImages as $image)
+				@forelse($post->donationImages->where('is_cover', 0) as $image)
                     <div class="col-3">
                         <img class="img-thumbnail m-1" src="{{asset('public/uploads/posts')}}/{{$image->photo}}" style="height: 200px;">
                     </div>

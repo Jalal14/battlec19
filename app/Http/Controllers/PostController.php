@@ -48,9 +48,55 @@ class PostController extends Controller
                 if (!file_exists($path)) {
 	                mkdir($path, config('app.filePermission'), true);
 	            }
-                $invoiceFiles = (new Post)->store($request->attachments, $path, $post->id, ['isUploaded' => true]);
+                $postFiles = (new Post)->store($request->attachments, $path, $post->id, ['isUploaded' => true]);
             }
 	    	DB::commit();
+            Session::flash('success', "Successfully saved");
+            return redirect("admin/post/list");
+        } catch (Exception $e) {
+            DB::rollback();
+            Session::flash('danger', "Save failed");
+            return redirect("admin/post/add");
+        }
+    }
+
+    public function edit($id)
+    {
+        $data['menu'] = 'post';
+        $data['post'] = Post::with(['donationImages'])->find($id);
+        return view('admin.posts.edit', $data);
+    }
+
+    public function update(Request $request)
+    {
+        try {
+            $post = Post::find($request->id);
+            if ($post) {
+                $post->description = $request->description;
+                $post->area = $request->area;
+                $post->in_charge = $request->in_charge;
+                $post->donation_date = $request->donation_date;
+                if ($post->save()) {
+                    if ($request->cover) {
+                        $imageName = md5(time()) .'_'. $post->id . "." . $request->cover->getClientOriginalExtension();
+                        $image = DonationImage::where(['post_id' => $post->id, 'is_cover' => 1])->first();
+                        if (file_exists("public/uploads/posts/".$image->photo)) {
+                            $unlinked = (new Post)->unlinkFile("public/uploads/posts/".$image->photo);
+                        }
+                        $image->photo = $imageName;
+                        $image->save();
+                        $request->cover->move(public_path('uploads/posts'), $imageName);
+                    }
+                }
+            }
+            if (!empty($request->attachments)) {
+                $path = "public/uploads/posts";
+                if (!file_exists($path)) {
+                    mkdir($path, config('app.filePermission'), true);
+                }
+                $postFiles = (new Post)->store($request->attachments, $path, $post->id, ['isUploaded' => true]);
+            }
+            DB::commit();
             Session::flash('success', "Successfully saved");
             return redirect("admin/post/list");
         } catch (Exception $e) {

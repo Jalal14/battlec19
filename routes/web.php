@@ -57,6 +57,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin'], function ()
 	Route::get('/post/list', 'PostController@index');
 	Route::get('/post/add', 'PostController@create');
 	Route::post('/post/store', 'PostController@store');
+	Route::get('/post/edit/{id}', 'PostController@edit');
+	Route::post('/post/update', 'PostController@update');
 
 
 	Route::get('/member', function () {
