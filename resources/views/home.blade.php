@@ -5,6 +5,12 @@
     <!-- vendor css -->
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/datta-able/plugins/chart-morris/css/morris.css') }}">
     <style>
+        .post {
+            border: 1px solid white;
+        }
+        a :hover{
+            color: white;
+        }
         .contact-section h2, .contact-section h3{
             color: white;
             font-weight: 800;
@@ -108,15 +114,40 @@
     </div>
     <div id="activities" style="height: 70px"></div>
     <div class="row">
+        @forelse($posts as $post)
+            <div class="col-md-4">
+                <a href="{{url('post')}}/{{$post->id}}">
+                    <div class="row">
+                        <img class="img-thumbnail m-1" src="{{asset('public/uploads/posts')}}/{{$post->coverPhoto}}" style="max-height: 250px;">
+                        <p class="p-2"> {{ substr($post->description, 0, 50)}}...</p>
+                    </div>
+                </a>
+            </div>
+        @empty
+        @endforelse
+    </div>
+    <div id="gallery" style="height: 70px"></div>
+    <div class="row">
         <img src="{{asset('public/images/logo.png')}}" style="height: 200px; margin-left: 10%" class="mr-auto">
         <img src="{{asset('public/images/logo.png')}}" style="height: 150px; margin-right: 10%" class="ml-auto">
         <div class="col-12">
-            <h1 style="text-align: center; margin-top: 5%; font-size: 70px; font-weight: 800; color: white">Some visuals of our activities</h1>
+            <h1 style="text-align: center; margin-top: 5%; font-size: 70px; font-weight: 800; color: white">Gallery of our activities</h1>
         </div>
         <div class="col-12 mt-5">
-            @for($i=1; $i<=21; $i++)
+            <div class="row">
+                @forelse($posts as $post)
+                    @forelse($post->donationImages as $image)
+                        <div class="col-3">
+                            <img class="img-thumbnail m-1" src="{{asset('public/uploads/posts')}}/{{$image->photo}}" style="height: 200px;">
+                        </div>
+                    @empty
+                    @endforelse
+                @empty
+                @endforelse
+            </div>
+            <!-- @for($i=1; $i<=21; $i++)
                 <img class="img-thumbnail m-1" src="{{asset('public/images/helps')}}/{{$i}}.png" style="max-height: 250px;">
-            @endfor
+            @endfor -->
         </div>
     </div>
     <div id="beside-us" style="height: 70px"></div>

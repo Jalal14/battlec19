@@ -39,6 +39,7 @@ class PostController extends Controller
 	    		$image->post_id = $post->id;
 	    		$image->is_cover = 1;
 	    		$image->photo = $imageName;
+                $image->save();
 	    		$request->cover->move(public_path('uploads/posts'), $imageName);
 	    	}
 	    	$post->save();

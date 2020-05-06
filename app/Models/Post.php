@@ -10,6 +10,11 @@ class Post extends Model
     public $timestamps = false;
     private $_tempDirectory = "public/contents/temp/";
 
+    public function donationImages()
+    {
+    	return $this->hasMany('App\Models\DonationImage');
+    }
+
     public function store($files = null, $uploadPath = null, $objectId = null, $options = [])
 	{
 		$ids = [];

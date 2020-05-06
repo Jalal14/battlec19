@@ -5,11 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Donation;
 use App\Models\Family;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $data['posts'] = Post::all();
+        foreach ($data['posts'] as $key => $post) {
+            $post->coverPhoto = $post->donationImages->where('is_cover', '1')->first()->photo;
+        }
     	$families = Family::all();
     	$data['saved'] = $families->where('name', '!=', 'cash out')->where('status', 'Done')->count();
     	$data['remains'] = $families->where('name', '!=', 'cash out')->where('status', 'Processing')->count();
@@ -61,5 +66,11 @@ class HomeController extends Controller
     	$data['cash_out'] = Family::where(['name' => 'cash out'])->first()->amount;
     	// dd($data);
     	return view('donated-list', $data);
+    }
+
+    public function postDetails($id)
+    {
+        $data['post'] = Post::find($id);
+        return view('post', $data);
     }
 }
